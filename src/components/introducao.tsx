@@ -10,7 +10,7 @@ import { Social } from "./social"
 
 export function Introducao() {
     return (
-        <Card>
+        <Card id="introduction">
             <CardHeader>
                 <CardTitle className="flex flex-col gap-1">
                     <Avatar />

@@ -2,6 +2,7 @@ import { AcademicEducation } from '@/components/academic-education'
 import { Introducao } from '@/components/introducao'
 import { ModeToggle } from '@/components/mode-toggle'
 import { NavigationMenuDemo } from '@/components/navigation-menu'
+import { Projects } from '@/components/projects'
 import { Skills } from '@/components/skills'
 
 export default function Home() {
@@ -13,10 +14,11 @@ export default function Home() {
           <div className='absolute right-0 top-0'><ModeToggle /></div>
         </div>
       </header>
-      <main className='flex flex-col gap-4 p-12'>
+      <main className='flex flex-col gap-4 p-12 items-center'>
         <Introducao />
         <AcademicEducation/>
         <Skills/>
+        <Projects />
       </main>
     </>
   )

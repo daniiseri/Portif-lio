@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"
 
-const skills: { imageUrl: string, title: string }[] = [
+const skills: { imageUrl: string, title: string, certificateUrl?: string }[] = [
     { imageUrl: 'html.png', title: 'HTML' },
     { imageUrl: 'css.png', title: 'CSS' },
     { imageUrl: 'javascript.png', title: 'Javascript' },
@@ -21,7 +21,7 @@ const skills: { imageUrl: string, title: string }[] = [
 
 export function Skills() {
     return (
-        <Card className="bg-white">
+        <Card id="skills" className="bg-white">
             <CardHeader><CardTitle className="font-extrabold text-primary">TÉCNOLOGIAS</CardTitle></CardHeader>
             <CardContent className="flex-1 flex gap-4 items-center flex-wrap">
                 {
