@@ -1,6 +1,7 @@
 import Image from "next/image"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "./ui/card"
 import { Separator } from "./ui/separator"
+import { Fragment } from "react"
 
 const courses: { title: string, description?: string, url?: string }[] = [
     { title: 'Técnico em Manutenção e Suporte em Informática', description: 'O curso de Manutenção e Suporte em Informática é projetado para proporcionar aos participantes uma compreensão aprofundada dos princípios fundamentais da manutenção de sistemas e suporte técnico em ambientes de informática. Ao longo do programa, os alunos serão expostos a uma variedade de tópicos práticos e teóricos, equipando-os com as habilidades necessárias para diagnosticar, resolver problemas e oferecer suporte eficaz em ambientes de TI dinâmicos.' },
@@ -23,8 +24,8 @@ export function AcademicEducation() {
             {
                 courses.map((course, index) => {
                     return (
-                        <>
-                            <CardHeader key={course.title}>
+                        <Fragment key={course.title}>
+                            <CardHeader >
                                 <CardTitle>{course.title}</CardTitle>
                             </CardHeader>
                             <CardContent>
@@ -49,7 +50,7 @@ export function AcademicEducation() {
                                 &&
                                 <Separator />
                             }
-                        </>
+                        </Fragment>
                     )
                 })
             }

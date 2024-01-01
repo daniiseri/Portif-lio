@@ -11,22 +11,22 @@ export function NavigationMenuDemo() {
         <Menubar className="flex">
             <a href="#introduction">
                 <MenubarMenu>
-                    <MenubarTrigger>Introdução</MenubarTrigger>
+                    <MenubarTrigger className="cursor-pointer">Introdução</MenubarTrigger>
                 </MenubarMenu>
             </a>
             <a href="#education">
                 <MenubarMenu>
-                    <MenubarTrigger>Formação Acadêmica</MenubarTrigger>
+                    <MenubarTrigger className="cursor-pointer">Formação Acadêmica</MenubarTrigger>
                 </MenubarMenu>
             </a>
             <a href="#skills">
                 <MenubarMenu>
-                    <MenubarTrigger>Competências</MenubarTrigger>
+                    <MenubarTrigger className="cursor-pointer">Competências</MenubarTrigger>
                 </MenubarMenu>
             </a>
             <a href="#projects">
-                <MenubarMenu>
-                    <MenubarTrigger>Projetos</MenubarTrigger>
+                <MenubarMenu >
+                    <MenubarTrigger className="cursor-pointer">Projetos</MenubarTrigger>
                 </MenubarMenu>
             </a>
             <MenubarMenu>
