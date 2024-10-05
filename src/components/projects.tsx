@@ -1,4 +1,4 @@
-import { FileImage, Image } from "lucide-react"
+import Image from "next/image"
 import { Status } from "./status"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "./ui/card"
 
@@ -48,7 +48,7 @@ const projects: Project[] = [
         title: 'puppeteer',
         status: 'offline',
         repositoryUrl: 'https://github.com/daniiseri/puppeteer',
-        description: 'Desenvolvi uma API inovadora para minerar informações sobre hardwares disponíveis no Mercado Livre. A intenção principal dessa ferramenta é sugerir produtos de acordo com a necessidade específica do cliente. Os resultados são retornados com base em níveis pré-estabelecidos por mim, proporcionando uma abordagem personalizada na busca por hardware no mercado.',
+        description: 'Desenvolvi uma API para minerar informações sobre hardwares disponíveis no Mercado Livre. A intenção principal dessa ferramenta é sugerir produtos de acordo com a necessidade específica do cliente. Os resultados são retornados com base em níveis pré-estabelecidos por mim, proporcionando uma abordagem personalizada na busca por hardware no mercado.',
         project: 'HelpTech: Orientação Personalizada para Compra de Hardwares com Base nas Necessidades do Cliente Identificadas por um Questionário. Desenvolvido como Trabalho de Conclusão de Curso (TCC).'
     },
     {
@@ -80,44 +80,34 @@ const projects: Project[] = [
 
 export function Projects() {
     return (
-        <div id="projects" className="flex flex-wrap max-w-[800px] gap-2 justify-center">
-            <CardHeader className="w-full font-extrabold text-primary"><CardTitle>PROJETOS</CardTitle></CardHeader>
+        <div id="projects" className="flex flex-wrap gap-2 justify-center">
+            <CardHeader className="w-full font-extrabold text-primary text-center"><CardTitle>Projetos</CardTitle></CardHeader>
             {
                 projects.map(({ status, title, description, pages, repositoryUrl, url, project }) => {
                     return (
-                        <Card key={title} className="w-1/3 max-w-72">
-                            <CardHeader>
-                                <CardTitle className="flex justify-between items-center">{title}  <Status status={status} /></CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <details>
-                                    <summary>detalhes</summary>
-                                    <p className="text-primary">{project}</p>
-                                    <p>{description}</p>
-                                    <div>
-                                        <h1 className="text-primary font-extrabold flex gap-1 items-center"> <FileImage/> IMAGENS</h1>
-                                        <ul>
-                                            {
-                                                pages?.map(page => {
-                                                    return (
-                                                        <li key={page.route} className="list-disc ml-3" >
-                                                            <a href={`${imagesPath}${title}/${page.imageUrl}`} target="_blank" className="text-primary font-extrabold">
-                                                                {page.route}
-                                                            </a>
-                                                        </li>
-                                                    )
-                                                })
-                                            }
-                                        </ul>
+                        <Card key={title} className="max-w-52">
+                            <CardContent className="p-0 h-96">
+                                {
+                                    <div className="flex h-1/2">
+                                        {
+                                            pages &&
+                                            <Image key={pages[0].imageUrl} width={200} height={200} alt={title} src={`${imagesPath}${title}/${pages[0].imageUrl}`} className="rounded-t-lg w-full bg-cover" />
+                                        }
                                     </div>
-                                </details>
+                                }
+                                <div className="p-4 max-h-[50%] overflow-hidden">
+                                    <p className="text-primary text-xs">{project}</p>
+                                    <p className="text-xs">{description}</p>
+                                </div>
                             </CardContent>
-                            <CardFooter className="text-primary underline">
+                            <CardFooter className="text-primary underline p-4 flex justify-between">
                                 {
                                     status === 'online'
-                                        ? <a href={url} target="_blank" >acessar página</a>
+                                        ? <a href={url} target="_blank">acessar página</a>
                                         : <a href={repositoryUrl} target="_blank">acessar repositório</a>
                                 }
+
+                                <Status status={status} />
                             </CardFooter>
                         </Card>
                     )

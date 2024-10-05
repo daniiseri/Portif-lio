@@ -15,45 +15,40 @@ const courses: { title: string, description?: string, url?: string }[] = [
 
 export function AcademicEducation() {
     return (
-        <Card id="education">
-            <CardHeader>
-                <CardTitle className="font-extrabold text-primary">
-                    FORMAÇÃO ACADÊMICA
-                </CardTitle>
-            </CardHeader>
-            {
-                courses.map((course, index) => {
-                    return (
-                        <Fragment key={course.title}>
-                            <CardHeader >
-                                <CardTitle>{course.title}</CardTitle>
-                            </CardHeader>
-                            <CardContent>
+        <>
+            <h3 className="font-extrabold text-primary text-2xl">Formação Acadêmica</h3>
+            <Card id="education">
+                {
+                    courses.map((course, index) => {
+                        return (
+                            <Fragment key={course.title}>
+                                <CardHeader >
+                                    <CardTitle>{course.title}</CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    {
+                                        course?.description
+                                        &&
+                                        course?.description
+                                    }
+                                </CardContent>
                                 {
-                                    course?.description
+                                    course.url
                                     &&
-                                    <details className="cursor-pointer">
-                                        <summary>descrição</summary>
-                                        {course?.description}
-                                    </details>
+                                    <CardFooter>
+                                        <a href={course.url} target="_blank" className="flex items-center gap-1 underline font-extrabold text-primary"><Image src='/certificate.png' alt={course.title} width={40} height={40} className="w-6" /> acessar certificado</a>
+                                    </CardFooter>
                                 }
-                            </CardContent>
-                            {
-                                course.url
-                                &&
-                                <CardFooter>
-                                    <a href={course.url} target="_blank" className="flex items-center gap-1 underline font-extrabold text-primary"><Image src='/certificate.png' alt={course.title} width={40} height={40} className="w-6" /> acessar certificado</a>
-                                </CardFooter>
-                            }
-                            {
-                                index < courses.length - 1
-                                &&
-                                <Separator />
-                            }
-                        </Fragment>
-                    )
-                })
-            }
-        </Card>
+                                {
+                                    index < courses.length - 1
+                                    &&
+                                    <Separator />
+                                }
+                            </Fragment>
+                        )
+                    })
+                }
+            </Card>
+        </>
     )
 } 

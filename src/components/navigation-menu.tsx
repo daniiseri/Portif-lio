@@ -3,8 +3,6 @@ import {
     MenubarMenu,
     MenubarTrigger,
 } from "@/components/ui/menubar"
-import { ModeToggle } from "./mode-toggle"
-
 
 export function NavigationMenuDemo() {
     return (
