@@ -31,7 +31,7 @@ export function Experience() {
       <h3 className="font-extrabold text-primary text-2xl text-center">Experiência profissional</h3>
       {
         EXPERIENCE.map(({ description, end, enterprise, imageUrl, position, start, locale, type }, index) => (
-          <Card className="pt-4">
+          <Card key={index} className="pt-4">
             <CardContent className="flex gap-2">
               <div>
                 {
