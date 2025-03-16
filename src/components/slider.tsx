@@ -56,7 +56,7 @@ export function Slider({
       <div className="flex justify-center gap-2">
         {
           Array(length / 3).fill(null).map((_, index) => (
-            <div>
+            <div key={index}>
               <input id={`slide-${index}`} type="radio" name='slide' value={index} onChange={onChange} className="hidden" />
               <label htmlFor={`slide-${index}`}>
                 <div className={cn("size-3 rounded-full border border-border cursor-pointer hover:bg-primary", slide === index && 'bg-primary')} />
