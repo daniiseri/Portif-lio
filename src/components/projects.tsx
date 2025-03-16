@@ -1,4 +1,5 @@
 import Image from "next/image"
+import { Slider } from "./slider"
 import { Status } from "./status"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "./ui/card"
 
@@ -82,41 +83,45 @@ export function Projects() {
     return (
         <div id="projects" className="flex flex-wrap gap-2 justify-center">
             <CardHeader className="w-full font-extrabold text-primary text-center"><CardTitle>Projetos</CardTitle></CardHeader>
-            {
-                projects.map(({ status, title, description, pages, repositoryUrl, url, project }) => {
-                    return (
-                        <Card key={title} className="max-w-52">
-                            <CardContent className="p-0 h-96">
-                                {
-                                    <div className="flex h-1/2">
-                                        {
-                                            pages &&
-                                            <Image key={pages[0].imageUrl} width={200} height={200} alt={title} src={`${imagesPath}${title}/${pages[0].imageUrl}`} className="rounded-t-lg w-full bg-cover" />
-                                        }
-                                    </div>
-                                }
-                                <div className="p-4 max-h-[50%] overflow-hidden">
-                                    <p className="text-primary text-xs">{project}</p>
-                                    <p className="text-xs">{description}</p>
-                                </div>
-                            </CardContent>
-                            <CardFooter className="text-primary underline p-4 flex justify-between">
-                                {
-                                    status === 'online'
-                                        ? <a href={url} target="_blank">acessar página</a>
-                                        : <a href={repositoryUrl} target="_blank">acessar repositório</a>
-                                }
+            <Slider
+                className='h-[520px]'
+                length={projects.length}
+                render={
+                    (
+                        <div className="flex">
+                            {
+                                projects.map(({ status, title, description, pages, repositoryUrl, url, project }) => (
+                                    <Card key={title} className="w-[300px] border-none p-2">
+                                        <CardContent className="p-1 rounded-lg h-96 border border-border">
+                                            {
+                                                <div className="flex h-1/2">
+                                                    {
+                                                        pages &&
+                                                        <Image key={pages[0].imageUrl} width={200} height={200} alt={title} src={`${imagesPath}${title}/${pages[0].imageUrl}`} className="rounded-t-lg w-full bg-cover" />
+                                                    }
+                                                </div>
+                                            }
+                                            <div className="p-4 max-h-[50%] overflow-hidden">
+                                                <p className="text-primary text-xs">{project}</p>
+                                                <p className="text-xs">{description}</p>
+                                            </div>
+                                        </CardContent>
+                                        <CardFooter className="text-primary underline p-4 flex justify-between">
+                                            {
+                                                status === 'online'
+                                                    ? <a href={url} target="_blank">acessar página</a>
+                                                    : <a href={repositoryUrl} target="_blank">acessar repositório</a>
+                                            }
 
-                                <Status status={status} />
-                            </CardFooter>
-                        </Card>
+                                            <Status status={status} />
+                                        </CardFooter>
+                                    </Card>
+                                ))
+                            }
+                        </div>
                     )
-                })
-            }
-            <CardFooter className="w-full justify-center gap-4">
-                <Status status="online" /> Aplicação está no ar
-                <Status status="offline" /> Aplicação <span className="text-primary underline font-extrabold">NÃO</span> está no ar
-            </CardFooter>
+                }
+            />
         </div>
     )
 }
