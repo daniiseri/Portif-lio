@@ -12,6 +12,11 @@ export function NavigationMenuDemo() {
                     <MenubarTrigger className="cursor-pointer">Introdução</MenubarTrigger>
                 </MenubarMenu>
             </a>
+            <a href="#experience">
+                <MenubarMenu>
+                    <MenubarTrigger className="cursor-pointer">Experiência</MenubarTrigger>
+                </MenubarMenu>
+            </a>
             <a href="#education">
                 <MenubarMenu>
                     <MenubarTrigger className="cursor-pointer">Formação Acadêmica</MenubarTrigger>

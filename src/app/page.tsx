@@ -1,4 +1,5 @@
 import { AcademicEducation } from '@/components/academic-education'
+import { Experience } from '@/components/experience'
 import { Introducao } from '@/components/introducao'
 import { ModeToggle } from '@/components/mode-toggle'
 import { NavigationMenuDemo } from '@/components/navigation-menu'
@@ -16,6 +17,7 @@ export default function Home() {
       </header>
       <main className='flex flex-col gap-4 p-12 items-center'>
         <Introducao />
+        <Experience />
         <AcademicEducation />
         <Skills />
         <Projects />
