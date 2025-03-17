@@ -91,7 +91,7 @@ export function Projects() {
                         <div className="flex">
                             {
                                 projects.map(({ status, title, description, pages, repositoryUrl, url, project }) => (
-                                    <Card key={title} className="w-[300px] border-none p-2">
+                                    <Card key={title} className="w-[256px] border-none p-2">
                                         <CardContent className="p-1 rounded-lg h-96 border border-border">
                                             {
                                                 <div className="flex h-1/2">

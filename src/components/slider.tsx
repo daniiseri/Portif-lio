@@ -21,7 +21,7 @@ export function Slider({
 
   useEffect(() => {
     if (slidesRef.current) {
-      slidesRef.current.style.left = -900 * slide + 'px'
+      slidesRef.current.style.left = -768 * slide + 'px'
     }
   }, [slide])
 
@@ -47,7 +47,7 @@ export function Slider({
 
   return (
     <div className="relative w-full">
-      <div ref={sliderRef} className={cn("mx-auto w-[900px] relative overflow-hidden", className)}>
+      <div ref={sliderRef} className={cn("mx-auto w-[768px] relative overflow-hidden", className)}>
         <div ref={slidesRef} className="absolute top-0 left-0 transition">
           {render}
         </div>
